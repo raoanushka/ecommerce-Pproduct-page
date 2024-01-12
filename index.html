@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #588BAE;
+        }
+
+        header {
+            background-color: #288BA8;
+            color: rgb(241, 241, 241);
+            text-align: center;
+            padding: 1em;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product {
+            margin-bottom: 40px;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .product-info {
+            text-align: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        .product-details {
+            display: none;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .product-expanded {
+            display: block !important;
+        }
+
+        nav {
+            margin-top: 20px;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a onclick="toggleSection('men')">Men</a>
+            <a onclick="toggleSection('women')">Women</a>
+        </nav>
+        <h1>FashionHub</h1>
+    </header>
+
+    <div id="men-section" class="container section active">
+        <!-- Product 1 -->
+        <div class="product">
+            <img class="product-image" src="product1.jpg" alt="Product 1 Image" onclick="toggleDetails('product-details-1')">
+            <div class="product-info">
+                <h2>Blue Shirt</h2>
+                <p>A stylish blue shirt for men with a comfortable fit. Perfect for casual or semi-formal occasions.</p>
+                <p>Price: rs.1200</p>
+                <a class="cta-button" href="#" onclick="addToCart('Blue Shirt')">Add to Cart</a>
+            </div>
+            <div class="product-details" id="product-details-1">
+                <p>This classic blue shirt is crafted from high-quality cotton, providing both style and comfort. The tailored fit ensures a modern look, making it suitable for a range of occasions. The versatile design makes it easy to pair with jeans for a casual day out or dress it up with trousers for a more polished appearance.<br>Features: Tailored fit, High-quality cotton, Versatile design</p>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <img class="product-image" src="product2.jpg" alt="Product 2 Image" onclick="toggleDetails('product-details-2')">
+            <div class="product-info">
+                <h2>Formal Blue Shirt</h2>
+                <p>Look sharp in this formal blue shirt. Ideal for business meetings or formal events.</p>
+                <p>Price: rs.999</p>
+                <a class="cta-button" href="#" onclick="addToCart('Formal Blue Shirt')">Add to Cart</a>
+            </div>
+            <div class="product-details" id="product-details-2">
+                <p>Elevate your formal wardrobe with this sophisticated formal blue shirt. The fine blend of cotton and polyester offers a crisp and refined look, perfect for business meetings and formal events. The shirt features a classic spread collar and buttoned cuffs, adding a touch of elegance to your ensemble.<br>Features: Classic spread collar, Buttoned cuffs, Crisp cotton-polyester blend</p>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product">
+            <img class="product-image" src="product3.jpg" alt="Product 3 Image" onclick="toggleDetails('product-details-3')">
+            <div class="product-info">
+                <h2>Red and Black Jacket</h2>
+                <p>Stay warm and fashionable with this red and black jacket. Great for chilly weather.</p>
+                <p>Price: rs.2000</p>
+                <a class="cta-button" href="#" onclick="addToCart('Red and Black Jacket')">Add to Cart</a>
+            </div>
+            <div class="product-details" id="product-details-3">
+                <p>Embrace the colder seasons in style with this trendy red and black jacket. The quilted design provides warmth and insulation, while the contrasting colors add a fashionable edge. Whether you're heading out for a casual weekend stroll or a night out with friends, this jacket is a must-have for your winter wardrobe.<br>Features: Quilted design, Contrasting colors, Warm and comfortable</p>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product">
+            <img class="product-image" src="product4.jpg" alt="Product 4 Image" onclick="toggleDetails('product-details-4')">
+            <div class="product-info">
+                <h2>Basic White T-shirt</h2>
+                <p>A classic white t-shirt for everyday wear. Simple and versatile.</p>
+                <p>Price: rs.399</p>
+                <a class="cta-button" href="#" onclick="addToCart('Basic White T-shirt')">Add to Cart</a>
+            </div>
+            <div class="product-details" id="product-details-4">
+                <p>Every wardrobe needs a reliable basic white t-shirt. This one is made from soft and breathable cotton, offering ultimate comfort throughout the day. The minimalist design makes it easy to pair with any bottoms, and the regular fit ensures a laid-back and effortless style.<br>Features: Soft and breathable cotton, Minimalist design, Regular fit</p>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product">
+            <img class="product-image" src="product5.jpg" alt="Product 5 Image" onclick="toggleDetails('product-details-5')">
+            <div class="product-info">
+                <h2>Formal Grey Shirt</h2>
+                <p>Elevate your style with this formal grey shirt. Suitable for both work and special occasions.</p>
+                <p>Price: rs.999</p>
+                <a class="cta-button" href="#" onclick="addToCart('Formal Grey Shirt')">Add to Cart</a>
+            </div>
+            <div class="product-details" id="product-details-5">
+                <p>Look sharp and sophisticated in this formal grey shirt. The high-quality fabric provides a smooth and polished appearance, making it suitable for both office wear and special occasions. The shirt features a pointed collar and adjustable button cuffs, adding a touch of refinement to your ensemble.<br>Features: Pointed collar, Adjustable button cuffs, Smooth and polished fabric</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="women-section" class="container section">
+        <!-- Product 6 -->
+        <div class="product">
+            <img class="product-image" src="product6.jpg" alt="Product 6 Image" onclick="toggleDetails('product-details-6')">
+            <div class="product-info">
+                <h2>Winter Grey Dress</h2>
+                <p>Embrace the winter season in style with this elegant grey dress. Perfect for special occasions.</p>
+                <p>Price: rs.2999</p>
+                <a class="cta-button" href="#" onclick="addToCart('Winter Grey Dress')">Add to Cart</a>
+            </div>
+            <div class="product-details" id="product-details-6">
+                <p>Embrace the winter season with grace in this winter grey dress. The elegant design, coupled with the soft and warm fabric, makes it an ideal choice for special occasions. The dress features a fitted bodice and a flared skirt, creating a flattering silhouette that's both stylish and comfortable.<br>Features: Fitted bodice, Flared skirt, Soft and warm fabric</p>
+            </div>
+        </div>
+
+     
+
+<div class="product">
+    <img class="product-image" src="product7.jpg" alt="Product 7 Image" onclick="toggleDetails('product-details-7')">
+    <div class="product-info">
+<h2>Basic Black T-shirt</h2>
+<p>A wardrobe essential, this basic black t-shirt is comfortable and versatile for everyday wear.</p>
+<p>Price: rs.299</p>
+<a class="cta-button" href="#" onclick="addToCart('Basic Black T-shirt')">Add to Cart</a>
+</div>
+<div class="product-details" id="product-details-7">
+<p>A versatile and essential piece, this basic black t-shirt is a staple for every woman's wardrobe. The comfortable and stretchy fabric ensures a perfect fit, while the classic crew neckline and short sleeves make it easy to pair with various bottoms for a casual yet chic look.<br>Features: Stretchy fabric, Classic crew neckline, Versatile and essential</p>
+</div>
+</div>
+    <!-- Product 8 -->
+    <div class="product">
+        <img class="product-image" src="product8.jpg" alt="Product 8 Image" onclick="toggleDetails('product-details-8')">
+        <div class="product-info">
+            <h2>Formal Black Shirt</h2>
+            <p>Make a statement with this formal black shirt. Ideal for professional settings or formal events.</p>
+            <p>Price: rs.600</p>
+            <a class="cta-button" href="#" onclick="addToCart('Formal Black Shirt')">Add to Cart</a>
+        </div>
+        <div class="product-details" id="product-details-8">
+            <p>Make a statement in this formal black shirt. The tailored fit and high-quality fabric give it a professional and sophisticated appearance, making it suitable for formal events and professional settings. The shirt features a pointed collar and buttoned cuffs for a polished finish.<br>Features: Tailored fit, High-quality fabric, Pointed collar and buttoned cuffs</p>
+        </div>
+    </div>
+
+    <!-- Product 9 -->
+    <div class="product">
+        <img class="product-image" src="product9.jpg" alt="Product 9 Image" onclick="toggleDetails('product-details-9')">
+        <div class="product-info">
+            <h2>Brown Shirt</h2>
+            <p>Stay on-trend with this stylish brown shirt. Perfect for a casual yet polished look.</p>
+            <p>Price: rs.2000</p>
+            <a class="cta-button" href="#" onclick="addToCart('Brown Shirt')">Add to Cart</a>
+        </div>
+        <div class="product-details" id="product-details-9">
+            <p>Stay on-trend with this stylish brown shirt. The shirt's unique color adds a touch of warmth to your look, making it a versatile piece for both casual and semi-formal occasions. The comfortable fabric and relaxed fit ensure that you stay fashionable and at ease throughout the day.<br>Features: Unique brown color, Versatile for various occasions, Comfortable and relaxed fit</p>
+        </div>
+    </div>
+
+    <!-- Product 10 -->
+    <div class="product">
+        <img class="product-image" src="product10.jpg" alt="Product 10 Image" onclick="toggleDetails('product-details-10')">
+        <div class="product-info">
+            <h2>White Formal Shirt</h2>
+            <p>A classic white formal shirt that adds sophistication to your wardrobe. Suitable for various occasions.</p>
+            <p>Price: rs.999</p>
+            <a class="cta-button" href="#" onclick="addToCart('White Formal Shirt')">Add to Cart</a>
+        </div>
+        <div class="product-details" id="product-details-10">
+            <p>Elevate your formalwear with this classic white formal shirt. The crisp and breathable fabric ensures a fresh and polished look. Featuring a pointed collar and buttoned cuffs, this shirt is perfect for business meetings, interviews, or any formal event where a touch of sophistication is required.<br>Features: Crisp and breathable fabric, Pointed collar and buttoned cuffs, Classic and timeless design</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleSection(section) {
+        document.getElementById('men-section').classList.remove('active');
+        document.getElementById('women-section').classList.remove('active');
+
+        document.getElementById(section + '-section').classList.add('active');
+    }
+
+    function toggleDetails(detailsId) {
+        var details = document.getElementById(detailsId);
+        details.classList.toggle('product-expanded');
+    }
+
+    function addToCart(productName) {
+        alert(productName + ' added to cart successfully!');
+    }
+</script>
+</body>
+</html>
